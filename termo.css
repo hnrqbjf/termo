@@ -1,0 +1,51 @@
+body {
+    font-family: "Roboto Mono", monospace;
+    min-height: 600px;
+    background-color: #5a5154;
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    /*background: #bdc3c7;  /* fallback for old browsers */
+    /*background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
+    /*background: linear-gradient(to right, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+  }
+  
+  .container {
+    text-align: center;
+    padding: 20px;
+    height: 100vh;
+  }
+  
+  .page-title {
+    color: #ffffff;
+    margin: 0 0 5px;
+  }
+
+  .linha {
+    margin: 50px;
+    background-color: white;
+    text-align: center;
+  }
+
+  .linha {
+    /* flex-direction: column; */
+    /* display: none; */
+    /* margin: 0 0 5px; */
+    display: flex;
+  }
+
+  .letra-certa {
+    display: flex;
+    color: #000;
+    background-color: #5a5154;
+  }
+  
+  .letra-errada {
+    display: flex;
+    background-color: #5a5154;
+  }
+
+  .letra-certa-lugar-errado {
+    display: flex;
+  }
