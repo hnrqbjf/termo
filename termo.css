@@ -13,9 +13,75 @@ body {
   
   .container {
     text-align: center;
-    padding: 20px;
+    /* padding: 20px; */
     height: 100vh;
+    caret-color: transparent;
   }
+   
+  .letras-brutas{
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin: 0 auto;
+    padding: 1.0rem 2rem;
+    border-radius: 0.2rem;
+    background-color: #4e2828;
+    border: none;
+    /* width: 90%; */
+    /* display: block; */
+    border-bottom: 0.3rem solid transparent;
+    transition: all 0.3s;
+  }
+
+  .letras-certas{
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin: 0 auto;
+    padding: 1.0rem 2rem;
+    border-radius: 0.2rem;
+    background-color: #025f2c;
+    border: none;
+    /* width: 90%; */
+    /* display: block; */
+    border-bottom: 0.3rem solid transparent;
+    transition: all 0.3s;
+  }
+
+  .letras-erradas{
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    color: #000000;
+    font-size: 1.2rem;
+    margin: 0 auto;
+    padding: 1.0rem 2rem;
+    border-radius: 0.2rem;
+    background-color: #c5b558;
+    border: none;
+    /* width: 90%; */
+    /* display: block; */
+    border-bottom: 0.3rem solid transparent;
+    transition: all 0.3s;
+  }
+
+  .letras-inexistentes{
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    color: #000000;
+    font-size: 1.2rem;
+    margin: 0 auto;
+    padding: 1.0rem 2rem;
+    border-radius: 0.2rem;
+    background-color: #a5b4ac;
+    border: none;
+    /* width: 90%; */
+    /* display: block; */
+    border-bottom: 0.3rem solid transparent;
+    transition: all 0.3s;
+  }
+
   
   .page-title {
     color: #ffffff;

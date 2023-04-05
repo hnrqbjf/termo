@@ -1,36 +1,62 @@
-var palavras = ["tripa","aureo","silva","osseo","corte"]
+var palavras = ["tripa", "aureo", "silva", "osseo", "corte"]
 var palavra = ""
-palavraSorteada =  Math.floor(Math.random() * palavras.length)
+palavraSorteada = Math.floor(Math.random() * palavras.length)
 palavra = palavras[palavraSorteada]
-elementoLetra1 = document.getElementById("l1")
-elementoLetra2 = document.getElementById("l2")
-elementoLetra3 = document.getElementById("l3")
-elementoLetra4 = document.getElementById("l4")
-elementoLetra5 = document.getElementById("l5")
+
+palavraArray = []
+
+palavraArray.push(palavra[0])
+palavraArray.push(palavra[1])
+palavraArray.push(palavra[2])
+palavraArray.push(palavra[3])
+palavraArray.push(palavra[4])
+
+rodadas = 0
+
+var container = document.getElementsByClassName("container")[0];
+container.onkeyup = function (e) {
+    var target = e.srcElement;
+    var maxLength = parseInt(target.attributes["maxlength"].value, 10);
+    var myLength = target.value.length;
+    if (myLength >= maxLength) {
+        var next = target;
+        while (next = next.nextElementSibling) {
+            if (next == null)
+                break;
+            if (next.tagName.toLowerCase() == "input") {
+                next.focus();
+                break;
+            }
+        }
+    }
+}
 
 function chama() {
-
-    // elementoa1Valor = parseInt(elementoa1.innerText)
-    // elementob1Valor = parseInt(elementob1.innerText)
-    // elementoc1Valor = parseInt(elementoc1.innerText)
-    // elementod1Valor = parseInt(elementod1.innerText)
-    // elementoa2Valor = parseInt(elementoa2.innerText)
-
     letra = []
-    letra.push(document.getElementById("letra1").value)
-    letra.push(document.getElementById("letra2").value)
-    letra.push(document.getElementById("letra3").value)
-    letra.push(document.getElementById("letra4").value)
-    letra.push(document.getElementById("letra5").value)
+    letra.push(document.getElementById("letra11").value)
+    letra.push(document.getElementById("letra12").value)
+    letra.push(document.getElementById("letra13").value)
+    letra.push(document.getElementById("letra14").value)
+    letra.push(document.getElementById("letra15").value)
 
-    for (var i = 0; i < palavra.length; i++) {
-        if (palavra[i] == letra[i] ){
-            document.getElementById().className = 'letra-certa';
+    var i = 0
+    var pos = 1 
+    while (i < palavra.length) {
+        console.log("Palavra  " + palavra[i])
+        console.log("Letra  " + letra[i])
+        console.log(palavra[i] === letra[i])
+        console.log(i)
+        
+        if (palavra[i] === letra[i]) {
+            document.getElementById("letra" + 1 + pos).className = "letras-certas";
+        } else {
+            if (palavraArray.includes(letra[i]))
+            document.getElementById("letra" + 1 + pos).className = "letras-erradas";
+            else {
+                document.getElementById("letra" + 1 + pos).className = "letras-inexistentes";
+            }
         }
-
-    } 
-    document.getElementById("letra"+i).className = 'letra-certa';
-
-    // document.getElementById("btnReiniciar").className = "button"
-
+        i++
+        pos++
+    }
 }
