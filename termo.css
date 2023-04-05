@@ -1,117 +1,146 @@
 body {
-    font-family: "Roboto Mono", monospace;
-    min-height: 600px;
-    background-color: #5a5154;
-    background-size: cover;
-    background-position: center bottom;
-    background-repeat: no-repeat;
-    /*background: #bdc3c7;  /* fallback for old browsers */
-    /*background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
-    /*background: linear-gradient(to right, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  
-  }
-  
-  .container {
-    text-align: center;
-    /* padding: 20px; */
-    height: 100vh;
-    caret-color: transparent;
-  }
-   
-  .letras-brutas{
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
-    color: #ffffff;
-    font-size: 1.2rem;
-    margin: 0 auto;
-    padding: 1.0rem 2rem;
-    border-radius: 0.2rem;
-    background-color: #4e2828;
-    border: none;
-    /* width: 90%; */
-    /* display: block; */
-    border-bottom: 0.3rem solid transparent;
-    transition: all 0.3s;
-  }
+  font-family: 'Mitr', sans-serif;
+  min-height: 600px;
+  background-color: #6e5c62;
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  /*background: #bdc3c7;  /* fallback for old browsers */
+  /*background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
+  /*background: linear-gradient(to right, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-  .letras-certas{
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
-    color: #ffffff;
-    font-size: 1.2rem;
-    margin: 0 auto;
-    padding: 1.0rem 2rem;
-    border-radius: 0.2rem;
-    background-color: #025f2c;
-    border: none;
-    /* width: 90%; */
-    /* display: block; */
-    border-bottom: 0.3rem solid transparent;
-    transition: all 0.3s;
-  }
+}
 
-  .letras-erradas{
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
-    color: #000000;
-    font-size: 1.2rem;
-    margin: 0 auto;
-    padding: 1.0rem 2rem;
-    border-radius: 0.2rem;
-    background-color: #c5b558;
-    border: none;
-    /* width: 90%; */
-    /* display: block; */
-    border-bottom: 0.3rem solid transparent;
-    transition: all 0.3s;
-  }
+.container {
+  text-align: center;
+  /* padding: 20px; */
+  height: 100vh;
+  caret-color: transparent;
+}
 
-  .letras-inexistentes{
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
-    color: #000000;
-    font-size: 1.2rem;
-    margin: 0 auto;
-    padding: 1.0rem 2rem;
-    border-radius: 0.2rem;
-    background-color: #a5b4ac;
-    border: none;
-    /* width: 90%; */
-    /* display: block; */
-    border-bottom: 0.3rem solid transparent;
-    transition: all 0.3s;
-  }
+.letras-brutas {
+  text-align: center;
+  font-family: 'Mitr', sans-serif;
+  color: #ffffff;
+  font-size: 1.2rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+  border-radius: 0.8rem;
+  background-color: #504a4b;
+  border: none;
+  border-bottom: 0.3rem solid transparent;
+  transition: all 0.3s;
+  text-transform: uppercase
+}
 
-  
-  .page-title {
-    color: #ffffff;
-    margin: 0 0 5px;
-  }
+.letras-certas {
+  text-align: center;
+  font-family: 'Mitr', sans-serif;
+  color: #ffffff;
+  font-size: 1.2rem;
+  margin: 0 auto;
+  padding: 1.0rem 2rem;
+  border-radius: 0.2rem;
+  background-color: #3aa394;
+  border: none;
+  border-bottom: 0.3rem solid transparent;
+  transition: all 0.3s;
+  text-transform: uppercase
+}
 
-  .linha {
-    margin: 50px;
-    background-color: white;
-    text-align: center;
-  }
+.letras-erradas {
+  text-align: center;
+  font-family: 'Mitr', sans-serif;
+  color: #000000;
+  font-size: 1.2rem;
+  margin: 0 auto;
+  padding: 1.0rem 2rem;
+  border-radius: 0.2rem;
+  background-color: #d3ad69;
+  border: none;
+  border-bottom: 0.3rem solid transparent;
+  transition: all 0.3s;
+  text-transform: uppercase
+}
 
-  .linha {
-    /* flex-direction: column; */
-    /* display: none; */
-    /* margin: 0 0 5px; */
-    display: flex;
-  }
+.letras-inexistentes {
+  text-align: center;
+  font-family: 'Mitr', sans-serif;
+  color: #312a2c;
+  font-size: 1.2rem;
+  margin: 0 auto;
+  padding: 1.0rem 2rem;
+  border-radius: 0.2rem;
+  background-color: #a5b4ac;
+  border: none;
+  border-bottom: 0.3rem solid transparent;
+  transition: all 0.3s;
+  text-transform: uppercase
+}
 
-  .letra-certa {
-    display: flex;
-    color: #000;
-    background-color: #5a5154;
-  }
-  
-  .letra-errada {
-    display: flex;
-    background-color: #5a5154;
-  }
 
-  .letra-certa-lugar-errado {
-    display: flex;
-  }
+.page-title {
+  color: #fafaff;
+  font-family: 'Mitr', sans-serif;
+  font-weight: 600;
+}
+
+.linha {
+  margin: 50px;
+  background-color: white;
+  text-align: center;
+}
+
+.button {
+  position: relative;
+  display: inline-block;
+  margin: 20px;
+}
+
+.button a {
+  color: white;
+  font-family: 'Mitr', sans-serif;
+  font-weight: bold;
+  font-size: 36px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #5a3e48;
+  display: block;
+  position: relative;
+  padding: 20px 40px;
+
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  text-shadow: 0px 1px 0px #000;
+  filter: dropshadow(color=#000, offx=0px, offy=1px);
+
+  -webkit-box-shadow: inset 0 1px 0 #FFE5C4, 0 10px 0 #3a252d;
+  -moz-box-shadow: inset 0 1px 0 #FFE5C4, 0 10px 0 #3a252d;
+  box-shadow: inset 0 1px 0 #FFE5C4, 0 10px 0 #3a252d;
+
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.button a:active {
+  top: 10px;
+  background-color: #a05046;
+  -webkit-box-shadow: inset 0 1px 0 #FFE5C4, inset 0 -3px 0 #915100;
+  -moz-box-shadow: inset 0 1px 0 #FFE5C4, inset 0 -3pxpx 0 #915100;
+  box-shadow: inset 0 1px 0 #FFE5C4, inset 0 -3px 0 #915100;
+}
+
+.button:after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  padding: 4px;
+  position: absolute;
+  bottom: -15px;
+  left: -4px;
+  z-index: -1;
+  background-color: #2B1800;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}

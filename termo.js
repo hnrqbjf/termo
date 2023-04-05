@@ -2,6 +2,7 @@ var palavras = ["tripa", "aureo", "silva", "osseo", "corte"]
 var palavra = ""
 palavraSorteada = Math.floor(Math.random() * palavras.length)
 palavra = palavras[palavraSorteada]
+rodada = 1
 
 palavraArray = []
 
@@ -31,7 +32,7 @@ container.onkeyup = function (e) {
     }
 }
 
-function chama() {
+function chute() {
     letra = []
     letra.push(document.getElementById("letra11").value)
     letra.push(document.getElementById("letra12").value)
