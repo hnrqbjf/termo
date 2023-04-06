@@ -18,6 +18,22 @@ body {
   caret-color: transparent;
 }
 
+input:focus{
+  outline: none;
+}
+/* input:focus{
+  outline: none;
+}
+input:focus{
+  outline: none;
+}
+input:focus{
+  outline: none;
+}
+input:focus{
+  outline: none;
+} */
+
 .letras-brutas {
   text-align: center;
   font-family: 'Mitr', sans-serif;

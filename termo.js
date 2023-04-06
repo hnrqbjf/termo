@@ -12,8 +12,6 @@ palavraArray.push(palavra[2])
 palavraArray.push(palavra[3])
 palavraArray.push(palavra[4])
 
-rodadas = 0
-
 var container = document.getElementsByClassName("container")[0];
 container.onkeyup = function (e) {
     var target = e.srcElement;
@@ -33,31 +31,58 @@ container.onkeyup = function (e) {
 }
 
 function chute() {
-    letra = []
-    letra.push(document.getElementById("letra11").value)
-    letra.push(document.getElementById("letra12").value)
-    letra.push(document.getElementById("letra13").value)
-    letra.push(document.getElementById("letra14").value)
-    letra.push(document.getElementById("letra15").value)
+    // $('input[termo-linha="1"][termo-pos="0"]').val();
 
-    var i = 0
-    var pos = 1 
-    while (i < palavra.length) {
-        console.log("Palavra  " + palavra[i])
-        console.log("Letra  " + letra[i])
-        console.log(palavra[i] === letra[i])
-        console.log(i)
-        
-        if (palavra[i] === letra[i]) {
-            document.getElementById("letra" + 1 + pos).className = "letras-certas";
-        } else {
-            if (palavraArray.includes(letra[i]))
-            document.getElementById("letra" + 1 + pos).className = "letras-erradas";
+    letras = [];
+
+    for (var i = 0; i < 5; i++) {
+        letras.push($('input[termo-linha="' + rodada + '"][termo-pos="' + i + '"]').val());
+    }
+    console.log(letras)
+
+    if (letras.includes("")) {
+        alert("letras vazias")
+    } else {
+        var i = 0
+        while (i < palavra.length) {
+            console.log("Palavra  " + palavra[i] + "     Letra  " + letras[i] + palavra[i] === letras[i])
+            console.log("Contador   " + i)
+
+            if (palavra[i] === letras[i]) {
+                $('input[termo-linha="' + rodada + '"][termo-pos="' + i + '"]').addClass("letras-certas").removeClass("letras-brutas").removeClass("letras-erradas").removeClass("letras-inexistentes")
+            } else if (palavra.includes(letras[i]))
+                $('input[termo-linha="' + rodada + '"][termo-pos="' + i + '"]').addClass("letras-erradas").removeClass("letras-certas").removeClass("letras-inexistentes").removeClass("letras-brutas")
             else {
-                document.getElementById("letra" + 1 + pos).className = "letras-inexistentes";
+                $('input[termo-linha="' + rodada + '"][termo-pos="' + i + '"]').addClass("letras-inexistentes").removeClass("letras-certas").removeClass("letras-brutas").removeClass("letras-erradas")
             }
+            i++
         }
-        i++
-        pos++
+
+        var atributo = 'letras-certas';
+        var primeiraClasse = null;
+
+        $('input[termo-linha="' + rodada + '"]').each(function (index) {
+            var classeAtual = $(this).attr('class');
+            validador = true
+            if (index === 0) {
+                primeiraClasse = classeAtual;
+            } else if (classeAtual !== primeiraClasse) {
+                validador = false
+                return false;
+            }
+        });
+
+        if (validador === true) {
+            alert("voce venceu")
+        } else {
+            for (var i = 0; i < 5; i++) {
+                $('input[termo-linha="' + rodada + '"][termo-pos="' + i + '"]').prop('disabled', true);
+                proximaRodada = rodada + 1
+                $('input[termo-linha="' + proximaRodada + '"][termo-pos="' + i + '"]').prop('disabled', false);
+            }
+
+            alert("Tente novamente")
+        }
+        rodada++
     }
 }
