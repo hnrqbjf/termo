@@ -58,7 +58,6 @@ function chute() {
             i++
         }
 
-        var atributo = 'letras-certas';
         var primeiraClasse = null;
 
         $('input[termo-linha="' + rodada + '"]').each(function (index) {
