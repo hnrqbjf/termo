@@ -1,3 +1,24 @@
+.success {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  display: none;
+}
+
+.failure {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  display: none;
+}
+
+.warning {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+  display: none;
+}
+
 body {
   font-family: 'Mitr', sans-serif;
   min-height: 600px;
@@ -13,14 +34,15 @@ body {
 
 .container {
   text-align: center;
-  /* padding: 20px; */
+  padding: 20px;
   height: 100vh;
   caret-color: transparent;
 }
 
-input:focus{
+input:focus {
   outline: none;
 }
+
 /* input:focus{
   outline: none;
 }
@@ -34,77 +56,104 @@ input:focus{
   outline: none;
 } */
 
+input:focus {
+  border-bottom: 0.45em solid #4C4347 !important;
+}
+
 .letras-brutas {
+  background-color: transparent;
+  border: 0.125em solid #4C4347;
+  border-bottom-color: rgb(76, 67, 71);
+  border-bottom-style: solid;
+  border-bottom-width: 0.125em;
+  border-radius: 10px;
   text-align: center;
   font-family: 'Mitr', sans-serif;
   color: #ffffff;
-  font-size: 1.2rem;
-  margin: 0 auto;
-  padding: 2.5rem 1.5rem;
-  border-radius: 0.8rem;
-  background-color: #504a4b;
-  border: none;
-  border-bottom: 0.3rem solid transparent;
-  transition: all 0.3s;
-  text-transform: uppercase
+  text-transform: uppercase;
+  height: 50px;
+  width: 50px
 }
 
 .letras-certas {
+  background-color: #3aa394;
+  border: 0.125em solid #4C4347;
+  border-bottom-color: rgb(76, 67, 71);
+  border-bottom-style: solid;
+  border-bottom-width: 0.125em;
+  border-radius: 10px;
   text-align: center;
   font-family: 'Mitr', sans-serif;
   color: #ffffff;
-  font-size: 1.2rem;
-  margin: 0 auto;
-  padding: 1.0rem 2rem;
-  border-radius: 0.2rem;
-  background-color: #3aa394;
-  border: none;
-  border-bottom: 0.3rem solid transparent;
-  transition: all 0.3s;
-  text-transform: uppercase
-}
-
-.letras-erradas {
-  text-align: center;
-  font-family: 'Mitr', sans-serif;
-  color: #000000;
-  font-size: 1.2rem;
-  margin: 0 auto;
-  padding: 1.0rem 2rem;
-  border-radius: 0.2rem;
-  background-color: #d3ad69;
-  border: none;
-  border-bottom: 0.3rem solid transparent;
-  transition: all 0.3s;
-  text-transform: uppercase
+  text-transform: uppercase;
+  height: 50px;
+  width: 50px
 }
 
 .letras-inexistentes {
+  background-color: #312a2c;
+  border: 0.125em solid #4C4347;
+  border-bottom-color: rgb(76, 67, 71);
+  border-bottom-style: solid;
+  border-bottom-width: 0.125em;
+  border-radius: 10px;
   text-align: center;
   font-family: 'Mitr', sans-serif;
-  color: #312a2c;
-  font-size: 1.2rem;
-  margin: 0 auto;
-  padding: 1.0rem 2rem;
-  border-radius: 0.2rem;
-  background-color: #a5b4ac;
-  border: none;
-  border-bottom: 0.3rem solid transparent;
-  transition: all 0.3s;
-  text-transform: uppercase
+  color: #ffffff;
+  text-transform: uppercase;
+  height: 50px;
+  width: 50px
 }
 
+.letras-erradas {
+  background-color: #d3ad69;
+  border: 0.125em solid #4C4347;
+  border-bottom-color: rgb(76, 67, 71);
+  border-bottom-style: solid;
+  border-bottom-width: 0.125em;
+  border-radius: 10px;
+  text-align: center;
+  font-family: 'Mitr', sans-serif;
+  color: #ffffff;
+  text-transform: uppercase;
+  height: 50px;
+  width: 50px
+}
 
 .page-title {
   color: #fafaff;
   font-family: 'Mitr', sans-serif;
   font-weight: 600;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+.prevent-select {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+.board{
+  margin-right: 50px; /* Adiciona margem à direita da primeira div */
+  margin-left: 50px; /* Adiciona margem à esquerda da segunda div */
+  justify-content: center;
 }
 
 .linha {
-  margin: 50px;
-  background-color: white;
+  display: flex;
+  margin: auto;
   text-align: center;
+  margin-top: 0;
+  background-position: center top;
+  background-repeat: no-repeat; 
+  background-size: cover;
+  padding: 5px;
+  width: 200px;
+  margin: auto;
+  justify-content: center;
+  background-image: url('images/backgrounds.png');
 }
 
 .button {
@@ -123,7 +172,7 @@ input:focus{
   background-color: #5a3e48;
   display: block;
   position: relative;
-  padding: 20px 40px;
+  padding: 15px 35px;
 
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   text-shadow: 0px 1px 0px #000;
@@ -159,4 +208,13 @@ input:focus{
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
+}
+
+.btnReiniciarPartida {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: none;
+  text-align: center;
+  cursor: pointer;
+  margin: 20 auto;
 }

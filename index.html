@@ -15,49 +15,48 @@
     <h1 class="page-title">
       TERMINHO
     </h1>
-    <div class="button">
-      <a href="#" onClick='chute()'>CHUTE</a>
-    </div>
-    <br>
-    <br>
-    <div class="container">
+    <linha class="linha">
       <input maxlength="1" class="letras-brutas" termo-linha="1" termo-pos="0" type="text" autofocus>
       <input maxlength="1" class="letras-brutas" termo-linha="1" termo-pos="1" type="text">
       <input maxlength="1" class="letras-brutas" termo-linha="1" termo-pos="2" type="text">
       <input maxlength="1" class="letras-brutas" termo-linha="1" termo-pos="3" type="text">
       <input maxlength="1" class="letras-brutas" termo-linha="1" termo-pos="4" type="text">
-      <br>
-      <br>
+    </linha>
+    <linha class="linha">
       <input maxlength="1" class="letras-brutas" termo-linha="2" termo-pos="0" type="text" disabled>
       <input maxlength="1" class="letras-brutas" termo-linha="2" termo-pos="1" type="text" disabled>
       <input maxlength="1" class="letras-brutas" termo-linha="2" termo-pos="2" type="text" disabled>
       <input maxlength="1" class="letras-brutas" termo-linha="2" termo-pos="3" type="text" disabled>
       <input maxlength="1" class="letras-brutas" termo-linha="2" termo-pos="4" type="text" disabled>
-      <br>
-      <br>
+    </linha>
+    <linha class="linha">
       <input maxlength="1" class="letras-brutas" termo-linha="3" termo-pos="0" type="text" disabled>
       <input maxlength="1" class="letras-brutas" termo-linha="3" termo-pos="1" type="text" disabled>
       <input maxlength="1" class="letras-brutas" termo-linha="3" termo-pos="2" type="text" disabled>
-      <input maxlength="1" class="letras-brutas" termo-linha="3" termo-pos="3" type="text" disabled>
-      <input maxlength="1" class="letras-brutas" termo-linha="3" termo-pos="4" type="text" disabled>
-      <br>
-      <br>
-      <input maxlength="1" class="letras-brutas" termo-linha="4" termo-pos="0" type="text" disabled>
-      <input maxlength="1" class="letras-brutas" termo-linha="4" termo-pos="1" type="text" disabled>
-      <input maxlength="1" class="letras-brutas" termo-linha="4" termo-pos="2" type="text" disabled>
-      <input maxlength="1" class="letras-brutas" termo-linha="4" termo-pos="3" type="text" disabled>
-      <input maxlength="1" class="letras-brutas" termo-linha="4" termo-pos="4" type="text" disabled>
-      <br>
-      <br>
-      <input maxlength="1" class="letras-brutas" termo-linha="5" termo-pos="0" type="text" disabled>
-      <input maxlength="1" class="letras-brutas" termo-linha="5" termo-pos="1" type="text" disabled>
-      <input maxlength="1" class="letras-brutas" termo-linha="5" termo-pos="2" type="text" disabled>
-      <input maxlength="1" class="letras-brutas" termo-linha="5" termo-pos="3" type="text" disabled>
-      <input maxlength="1" class="letras-brutas" termo-linha="5" termo-pos="4" type="text" disabled>
-    </div>
-    <br>
-
-</body>
-<script src="termo.js"></script>
-
-</html>
+        <input maxlength="1" class="letras-brutas" termo-linha="3" termo-pos="3" type="text" disabled>
+        <input maxlength="1" class="letras-brutas" termo-linha="3" termo-pos="4" type="text" disabled>
+      </linha>
+      <linha class="linha">
+        <input maxlength="1" class="letras-brutas" termo-linha="4" termo-pos="0" type="text" disabled>
+        <input maxlength="1" class="letras-brutas" termo-linha="4" termo-pos="1" type="text" disabled>
+        <input maxlength="1" class="letras-brutas" termo-linha="4" termo-pos="2" type="text" disabled>
+        <input maxlength="1" class="letras-brutas" termo-linha="4" termo-pos="3" type="text" disabled>
+        <input maxlength="1" class="letras-brutas" termo-linha="4" termo-pos="4" type="text" disabled>
+      </linha>
+      <linha class="linha">
+        <input maxlength="1" class="letras-brutas" termo-linha="5" termo-pos="0" type="text" disabled>
+        <input maxlength="1" class="letras-brutas" termo-linha="5" termo-pos="1" type="text" disabled>
+        <input maxlength="1" class="letras-brutas" termo-linha="5" termo-pos="2" type="text" disabled>
+        <input maxlength="1" class="letras-brutas" termo-linha="5" termo-pos="3" type="text" disabled>
+        <input maxlength="1" class="letras-brutas" termo-linha="5" termo-pos="4" type="text" disabled>
+      </linha>
+      <div class="button">
+        <a href="#" id="botao-tudo" onClick='chute()'>CHUTE</a>
+      </div>
+      <div class="alert-box success">Você ganhou!</div>
+      <div class="alert-box warning">Você precisa digitar a palavra inteira!</div>
+      <button onclick="reiniciarPartida()" class="btnReiniciarPartida" id="btnReiniciarPartida">REINICIAR PARTIDA?</button>
+    </body>
+    <script src="termo.js"></script>
+    
+    </html>

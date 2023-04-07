@@ -1,8 +1,10 @@
+var btnReiniciarPartida = document.getElementById("btnReiniciarPartida")
 var palavras = ["tripa", "aureo", "silva", "osseo", "corte"]
 var palavra = ""
 palavraSorteada = Math.floor(Math.random() * palavras.length)
 palavra = palavras[palavraSorteada]
 rodada = 1
+var elementoBotao = document.getElementById("botao-tudo");
 
 palavraArray = []
 
@@ -31,8 +33,6 @@ container.onkeyup = function (e) {
 }
 
 function chute() {
-    // $('input[termo-linha="1"][termo-pos="0"]').val();
-
     letras = [];
 
     for (var i = 0; i < 5; i++) {
@@ -41,7 +41,7 @@ function chute() {
     console.log(letras)
 
     if (letras.includes("")) {
-        alert("letras vazias")
+        $("div.warning");
     } else {
         var i = 0
         while (i < palavra.length) {
@@ -61,7 +61,7 @@ function chute() {
         var primeiraClasse = null;
 
         $('input[termo-linha="' + rodada + '"]').each(function (index) {
-            var classeAtual = $(this).attr('class');
+            var classeAtual = "letras-certas";
             validador = true
             if (index === 0) {
                 primeiraClasse = classeAtual;
@@ -72,15 +72,17 @@ function chute() {
         });
 
         if (validador === true) {
-            alert("voce venceu")
+            $("div.success").fadeIn(300).delay(3000).fadeOut(600);
+            elementoBotao.innerHTML = "Reiniciar a partida?"
+            btnReiniciarPartida.style.display = "none"
+            partida.style.display = "block"
         } else {
             for (var i = 0; i < 5; i++) {
                 $('input[termo-linha="' + rodada + '"][termo-pos="' + i + '"]').prop('disabled', true);
                 proximaRodada = rodada + 1
                 $('input[termo-linha="' + proximaRodada + '"][termo-pos="' + i + '"]').prop('disabled', false);
             }
-
-            alert("Tente novamente")
+            $("div.warning").fadeIn(300).delay(1500).fadeOut(600);
         }
         rodada++
     }
