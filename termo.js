@@ -1,5 +1,7 @@
 var btnChute = document.getElementById("div-botao-chute")
-var btnReiniciar = document.getElementById("div-botao-reiniciar")
+var btnDivReiniciar = document.getElementById("div-botao-reiniciar")
+var btnReiniciar = document.getElementById("botao-reiniciar")
+var btnDivReiniciar2 = document.querySelectorAll("button:nth-child(5)");
 var palavra = ""
 var rodada = 1
 var arrayPalavrasValidas = []
@@ -67,7 +69,7 @@ function chute() {
         if (acertoFull === 5) {
             $("div.success").fadeIn(300).delay(3000).fadeOut(600);
             btnChute.style.display = "none"
-            btnReiniciar.style.display = "block"
+            document.querySelector('.button:nth-of-type(5)').style.display = "inline-block"
         } else {
             for (var i = 0; i < 6; i++) {
                 $('input[termo-linha="' + rodada + '"][termo-pos="' + i + '"]').prop('disabled', true);
@@ -78,7 +80,7 @@ function chute() {
 
         if (rodada === 6 && acertoFull != 5) {
             btnChute.style.display = "none"
-            btnReiniciar.style.display = "block"
+            document.querySelector('.button:nth-of-type(5)').style.display = "inline-block"
         }
         rodada++
     }

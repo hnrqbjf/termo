@@ -248,3 +248,7 @@ input:focus {
 .button:nth-of-type(5) {
   display: none;
 }
+
+.btnReiniciarPartida {
+  display: none;
+}
