@@ -16,12 +16,14 @@ fetch('palavrasSorteio.json')
         palavra = data[randomKey];
     });
 
-fetch('palavrasValidas.json')
-    .then(response => response.json())
-    .then(data => {
-        arrayPalavrasValidas = data;
-    })
-    .catch(error => console.error(error));
+// fetch('palavrasValidas.json')
+//     .then(response => response.json())
+//     .then(data => {
+//         arrayPalavrasValidas = data;
+//     })
+//     .catch(error => console.error(error));
+
+arrayPalavrasValidas = ["carta", "aureo", "sapat"]
 
 for (var i = 0; i < 5; i++) {
     palavraArray.push(palavra[i])
