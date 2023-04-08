@@ -1,18 +1,88 @@
-var btnReiniciarPartida = document.getElementById("btnReiniciarPartida")
-var palavras = ["tripa", "aureo", "silva", "osseo", "corte"]
+var btnChute = document.getElementById("div-botao-chute")
+var btnReiniciar = document.getElementById("div-botao-reiniciar")
 var palavra = ""
-palavraSorteada = Math.floor(Math.random() * palavras.length)
-palavra = palavras[palavraSorteada]
-rodada = 1
-var elementoBotao = document.getElementById("botao-tudo");
+var rodada = 1
+var arrayPalavrasValidas = []
+var palavraArray = []
 
-palavraArray = []
+fetch('palavrasSorteio.json')
+    .then(response => response.json())
+    .then(data => {
+        const keys = Object.keys(data);
+        const randomIndex = Math.floor(Math.random() * keys.length);
+        const randomKey = keys[randomIndex];
+        palavra = data[randomKey];
+    });
 
-palavraArray.push(palavra[0])
-palavraArray.push(palavra[1])
-palavraArray.push(palavra[2])
-palavraArray.push(palavra[3])
-palavraArray.push(palavra[4])
+fetch('palavrasValidas.json')
+    .then(response => response.json())
+    .then(data => {
+        arrayPalavrasValidas = data;
+    })
+    .catch(error => console.error(error));
+
+for (var i = 0; i < 5; i++) {
+    palavraArray.push(palavra[i])
+}
+
+function reiniciarPartida() {
+    location.reload()
+}
+
+function chute() {
+    letras = [];
+    var acertoFull = 0
+    var palavraInvalida = true;
+
+    for (var i = 0; i < 5; i++) {
+        letras.push($('input[termo-linha="' + rodada + '"][termo-pos="' + i + '"]').val());
+    }
+
+    palavraChutada = letras.join(" ").replace(/\s+/g, '');
+
+    if (arrayPalavrasValidas.includes(palavraChutada)) {
+        palavraInvalida = false;
+    } else {
+        palavraInvalida = true;
+    }
+
+    if (letras.includes("") || letras.includes(" ")) {
+        $("div.warning").fadeIn(300).delay(3000).fadeOut(600);
+    } else if (palavraInvalida === true) {
+        $("div.warning-palavra-invalida").fadeIn(300).delay(3000).fadeOut(600);
+    } else {
+        var i = 0
+        while (i < palavra.length) {
+            if (palavra[i] === letras[i]) {
+                $('input[termo-linha="' + rodada + '"][termo-pos="' + i + '"]').addClass("letras-certas").removeClass("letras-brutas").removeClass("letras-erradas").removeClass("letras-inexistentes")
+                acertoFull++
+            } else if (palavra.includes(letras[i]))
+                $('input[termo-linha="' + rodada + '"][termo-pos="' + i + '"]').addClass("letras-erradas").removeClass("letras-certas").removeClass("letras-inexistentes").removeClass("letras-brutas")
+            else {
+                $('input[termo-linha="' + rodada + '"][termo-pos="' + i + '"]').addClass("letras-inexistentes").removeClass("letras-certas").removeClass("letras-brutas").removeClass("letras-erradas")
+            }
+            i++
+        }
+
+        if (acertoFull === 5) {
+            $("div.success").fadeIn(300).delay(3000).fadeOut(600);
+            btnChute.style.display = "none"
+            btnReiniciar.style.display = "block"
+        } else {
+            for (var i = 0; i < 6; i++) {
+                $('input[termo-linha="' + rodada + '"][termo-pos="' + i + '"]').prop('disabled', true);
+                proximaRodada = rodada + 1
+                $('input[termo-linha="' + proximaRodada + '"][termo-pos="' + i + '"]').prop('disabled', false);
+            }
+        }
+
+        if (rodada === 6 && acertoFull != 5) {
+            btnChute.style.display = "none"
+            btnReiniciar.style.display = "block"
+        }
+        rodada++
+    }
+}
 
 var container = document.getElementsByClassName("container")[0];
 container.onkeyup = function (e) {
@@ -29,61 +99,5 @@ container.onkeyup = function (e) {
                 break;
             }
         }
-    }
-}
-
-function chute() {
-    letras = [];
-
-    for (var i = 0; i < 5; i++) {
-        letras.push($('input[termo-linha="' + rodada + '"][termo-pos="' + i + '"]').val());
-    }
-    console.log(letras)
-
-    if (letras.includes("")) {
-        $("div.warning");
-    } else {
-        var i = 0
-        while (i < palavra.length) {
-            console.log("Palavra  " + palavra[i] + "     Letra  " + letras[i] + palavra[i] === letras[i])
-            console.log("Contador   " + i)
-
-            if (palavra[i] === letras[i]) {
-                $('input[termo-linha="' + rodada + '"][termo-pos="' + i + '"]').addClass("letras-certas").removeClass("letras-brutas").removeClass("letras-erradas").removeClass("letras-inexistentes")
-            } else if (palavra.includes(letras[i]))
-                $('input[termo-linha="' + rodada + '"][termo-pos="' + i + '"]').addClass("letras-erradas").removeClass("letras-certas").removeClass("letras-inexistentes").removeClass("letras-brutas")
-            else {
-                $('input[termo-linha="' + rodada + '"][termo-pos="' + i + '"]').addClass("letras-inexistentes").removeClass("letras-certas").removeClass("letras-brutas").removeClass("letras-erradas")
-            }
-            i++
-        }
-
-        var primeiraClasse = null;
-
-        $('input[termo-linha="' + rodada + '"]').each(function (index) {
-            var classeAtual = "letras-certas";
-            validador = true
-            if (index === 0) {
-                primeiraClasse = classeAtual;
-            } else if (classeAtual !== primeiraClasse) {
-                validador = false
-                return false;
-            }
-        });
-
-        if (validador === true) {
-            $("div.success").fadeIn(300).delay(3000).fadeOut(600);
-            elementoBotao.innerHTML = "Reiniciar a partida?"
-            btnReiniciarPartida.style.display = "none"
-            partida.style.display = "block"
-        } else {
-            for (var i = 0; i < 5; i++) {
-                $('input[termo-linha="' + rodada + '"][termo-pos="' + i + '"]').prop('disabled', true);
-                proximaRodada = rodada + 1
-                $('input[termo-linha="' + proximaRodada + '"][termo-pos="' + i + '"]').prop('disabled', false);
-            }
-            $("div.warning").fadeIn(300).delay(1500).fadeOut(600);
-        }
-        rodada++
     }
 }
